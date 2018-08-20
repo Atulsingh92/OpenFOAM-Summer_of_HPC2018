@@ -7,7 +7,6 @@
 #SBATCH -o test-%j.out
 
 module use /galileo/prod/spack/v001/RCM_spack_deploy/deploy/galileo_dev00/insitu01/spack/share/spack/modules/linux-centos7-x86_64
-#Dambreak case runs fine for alplawater and velocity with of-catalyst/1806-gcc-7.3.0-kb, not the sou case!!
 module load of-catalyst/1806-gcc-7.3.0-3w
 #rm -r processor*
 #rm -r insitu
