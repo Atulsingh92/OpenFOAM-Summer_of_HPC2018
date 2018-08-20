@@ -1,0 +1,65 @@
+/*--------------------------------*- C++ -*----------------------------------* \
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      controlDict.1st;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     interFoam;
+
+startFrom       latestTime;
+
+latestTime      1e-04;
+
+endTime         5e-03;//5e-3;
+
+deltaT          1e-07; 
+
+writeControl    adjustableRunTime;// (initial value);
+
+writeInterval   2e-05; //;1; //1e-08 (initial value);, (currently 2000*deltaT = 2e-5)
+ 
+purgeWrite      0;
+
+writeFormat     ascii;//binary;
+
+writePrecision  8;
+
+writeCompression compressed;
+
+timeFormat       general;
+
+timePrecision    8;
+
+runTimeModifiable true; //Switch for whether dictionaries, e.g. controlDict, are re-read during a simulation at the beginning of each time step, allowing the
+                        //user to modify parameters during a simulation. 
+
+adjustTimeStep  on; //initially on;
+
+maxCo           0.25;
+
+maxAlphaCo      1;
+
+maxDeltaT       1e-04;
+
+minDeltaT       1e-07;
+
+boundedGauss off;
+
+writeOptionalEntries 1;
+
+functions
+{
+        #include "catalyst"
+}
+// ************************************************************************* //
